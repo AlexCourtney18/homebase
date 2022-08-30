@@ -41,7 +41,7 @@ User.init(
                 key: 'id'
             }
         }
-
+        //may need to add a user_id here for the foreign keys.
     },
     {
         hooks: {

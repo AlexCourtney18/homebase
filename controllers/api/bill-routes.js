@@ -4,6 +4,23 @@ const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Bill.findAll({
+        attributes: [
+            'id',
+            'company',
+            'amount_due',
+            'due_date',
+            'status',
+        ],
+        include: [
+            {
+                model: Group,
+                attributes: ['id', 'group_name', 'address'],
+            },
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
     })
         .then(dbBillData => res.json(dbBillData))
         .catch(err => {

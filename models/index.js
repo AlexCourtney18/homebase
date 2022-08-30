@@ -1,6 +1,9 @@
 const User = require('./User');
 const Bill = require('./Bill');
 const Group = require('./Group');
+const Chore = require('./Chore');
+const Grocery = require('./Grocery');
+
 
 Group.hasMany(User, {
     foreignKey: 'group_id'
@@ -24,4 +27,5 @@ Bill.belongsTo(Group, {
 //     foreignKey: 
 // })
 
-module.exports = { User, Bill, Group };
+module.exports = { User, Bill, Group, Chore, Grocery };
+

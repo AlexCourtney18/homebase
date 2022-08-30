@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS homebase;
+CREATE DATABASE homebase;

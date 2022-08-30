@@ -56,4 +56,6 @@ User.belongsToMany(Bill, {
     foreignKey: 'user_id'
 });
 
+
 module.exports = { User, Bill, Group, Chore, Grocery };
+

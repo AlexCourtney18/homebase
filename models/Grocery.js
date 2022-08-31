@@ -21,13 +21,6 @@ Grocery.init(
                 model: 'group',
                 key: 'id'
             }
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'group',
-                key: 'id'
-            }
         }
     },
     {

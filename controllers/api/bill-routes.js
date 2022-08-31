@@ -15,10 +15,10 @@ router.get('/', (req, res) => {
             {
                 model: Group,
                 attributes: ['id', 'group_name', 'address'],
-            },
-            {
-                model: User,
-                attributes: ['username']
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
             }
         ]
     })
@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+}); //works
 
 router.get('/:id', (req, res) => {
     Bill.findOne({
@@ -45,10 +45,10 @@ router.get('/:id', (req, res) => {
             {
                 model: Group,
                 attributes: ['id', 'group_name', 'address'],
-            },
-            {
-                model: User,
-                attributes: ['username']
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
             }
         ]
     })
@@ -66,21 +66,20 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if (req.session) {
+    //if (req.session) { //commented out seession data for now
         Bill.create({
             company: req.body.company,
             amount_due: req.body.amount_due,
             due_date: req.body.due_date,
             status: req.body.status,
-            group_id: req.body.group_id,
-            user_id: req.session.user_id
+            group_id: req.body.group_id
         })
             .then(dbBillData => res.json(dbBillData))
             .catch(err => {
                 console.log(err);
                 res.status(400).json(err);
             });
-    }
+    //}
 });
 
 router.put('/:id', (req, res) => {
@@ -108,7 +107,7 @@ router.put('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});
+}); //works
 
 router.delete('/:id', (req, res) => {
     Bill.destroy({
@@ -127,7 +126,6 @@ router.delete('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-});
-
+}); //works
 
 module.exports = router;

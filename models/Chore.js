@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize')
-const sequelize = require('../config/connection');
+//const sequelize = require('../config/connection');
+const sequelize = require('../test-connection');
 
 class Chore extends Model {}
 
@@ -19,13 +20,6 @@ Chore.init(
             type: DataTypes.INTEGER,
             references: {
                 model: 'group',
-                key: 'id'
-            }
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
                 key: 'id'
             }
         }

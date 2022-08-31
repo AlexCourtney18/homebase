@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+}); //works
 
 router.get('/:id', (req, res) => {
     Grocery.findOne({
@@ -41,7 +41,7 @@ router.get('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});
+}); //works
 
 router.post('/', (req, res) => {
     Grocery.create({
@@ -53,12 +53,12 @@ router.post('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); 
+}); //works
 
 router.put('/:id', (req, res) => {
     Grocery.update(
         {
-            Grocery_name: req.body.grocery_name,
+            grocery_name: req.body.grocery_name,
             group_id: req.body.group_id
         },
         {
@@ -78,7 +78,7 @@ router.put('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); 
+}); //works
 
 router.delete('/:id', (req, res) => {
     Grocery.destroy({
@@ -97,7 +97,7 @@ router.delete('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); 
+}); //works
 
 
 module.exports = router;

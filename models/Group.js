@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-//const sequelize = require('../config/connection');
-const sequelize = require('../test-connection');
+const sequelize = require('../config/connection');
 const User = require('./User');
 
 class Group extends Model {}

@@ -8,10 +8,6 @@ router.get('/', (req, res) => {
             {
                 model: Group,
                 attributes: ['id', 'group_name', 'address'],
-            },
-            {
-                model: User,
-                attributes: ['username']
             }
         ]
     })
@@ -20,7 +16,7 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+}); //works
 
 router.get('/:id', (req, res) => {
     Chore.findOne({
@@ -31,10 +27,6 @@ router.get('/:id', (req, res) => {
             {
                 model: Group,
                 attributes: ['id', 'group_name', 'address'],
-            },
-            {
-                model: User,
-                attributes: ['username']
             }
         ]
     })
@@ -49,20 +41,19 @@ router.get('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});
+}); //works
 
 router.post('/', (req, res) => {
     Chore.create({
         chore_name: req.body.chore_name,
-        group_id: req.body.group_id,
-        user_id: req.session.user_id
+        group_id: req.body.group_id
     })
     .then(dbChoreData => res.json(dbChoreData))
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
-});
+}); //works
 
 router.put('/:id', (req, res) => {
     Chore.update(
@@ -87,7 +78,7 @@ router.put('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});
+}); //works
 
 router.delete('/:id', (req, res) => {
     Chore.destroy({
@@ -106,7 +97,7 @@ router.delete('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});
+}); //works
 
 
 module.exports = router;

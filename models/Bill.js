@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+//const sequelize = require('../config/connection');
+const sequelize = require('../test-connection');
 
 class Bill extends Model {}
 
@@ -27,13 +28,6 @@ Bill.init(
             type: DataTypes.BOOLEAN,
             defaultValue: false,
             allowNull: false
-        },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
         },
         group_id: {
             type: DataTypes.INTEGER,

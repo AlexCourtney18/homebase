@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Bill, Group } = require('../../models');
+const { User, Bill, Group, Chore } = require('../../models');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+}); //works
 
 router.get('/:id', (req, res) => {
     User.findOne({
@@ -20,15 +20,21 @@ router.get('/:id', (req, res) => {
         },
         include: [
             {
-                model: Bill,
-                attributes: ['id', 'company', 'amount_due', 'due_date', 'status' ]
-            },
-            {
                 model: Group,
-                attributes: ['id', 'group_name', 'address']
+                attributes: ['id', 'group_name', 'address'],
+                include: [
+                    {
+                        model: Bill,
+                        attributes: ['id', 'company', 'amount_due', 'due_date', 'status' ]
+                    },
+                    {
+                        model: Chore,
+                        attributes: ['chore_name']
+                    }
+                ]
             }
         ]
-    })
+    }) 
     .then(dbUserData => {
         if (!dbUserData) {
             res.status(404).json({ message: 'No user found with this id' });
@@ -40,24 +46,24 @@ router.get('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-});
+}); //works
 
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
-        password: req.body.password
+        password: req.body.password,
     })
     .then(dbUserData => {
-        req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
+        // req.session.save(() => {
+        //     req.session.user_id = dbUserData.id;
+        //     req.session.username = dbUserData.username;
+        //     req.session.loggedIn = true;
 
-            req.json(dbUserData);
+            res.json(dbUserData);
         });
     })
-});
+//}); //works. Will need to uncomment this line and the session data for sessions
 
 router.post('/login', (req, res) => {
     User.findOne({
@@ -84,7 +90,7 @@ router.post('/login', (req, res) => {
             res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
     });
-});
+}); //no test
 
 router.put('/:id', (req, res) => {
     User.update(req.body, {
@@ -104,7 +110,7 @@ router.put('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+}); //works
 
 router.delete('/:id', (req, res) => {
     User.destroy({
@@ -123,7 +129,7 @@ router.delete('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-});
+}); //works
 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
@@ -134,7 +140,7 @@ router.post('/logout', (req, res) => {
     else {
         res.status(404).end();
     }
-});
+}); //no test
 
 
 module.exports = router;

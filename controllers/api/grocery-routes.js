@@ -45,7 +45,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     Grocery.create({
-        Grocery_name: req.body.grocery_name,
+        grocery_name: req.body.grocery_name,
         group_id: req.body.group_id
     })
     .then(dbGroceryData => res.json(dbGroceryData))

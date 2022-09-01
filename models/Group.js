@@ -19,11 +19,13 @@ Group.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        password: {
+        user_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            validate: {
-                len: [4]
+            references: {
+                model: 'user',
+                key: 'id'
+                
             }
         }
     },

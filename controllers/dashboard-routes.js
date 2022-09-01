@@ -30,7 +30,7 @@ router.get('/:id', withAuth, (req, res) => {
         ]
     })
     .then(dbGroupData => {
-        console.log('CAKE', dbGroupData.bills);
+        console.log('CAKE', dbGroupData.bills, dbGroupData.chores, dbGroupData.groceries);
         const group = dbGroupData.get({ plain: true });
 
         res.render('dashboard', {

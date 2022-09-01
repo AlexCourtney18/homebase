@@ -3,68 +3,45 @@ const sequelize = require('../config/connection');
 const { Bill, Chore, Grocery, Group, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/:id', (req, res) => {
-    Bill.findAll({
+router.get('/:id', withAuth, (req, res) => {
+    Group.findOne({
         where: {
-            group_id: req.params.id
+            id: req.params.id
         },
         attributes: [
             'id',
-            'company',
-            'amount_due',
-            'due_date',
-            'status'
+            'group_name',
+            'address',
+            'user_id'
+        ],
+        include: [
+            {
+                model: Bill,
+                attributes: ['id', 'company', 'amount_due', 'due_date', 'status', 'group_id']
+            },
+            {
+                model: Chore,
+                attributes: ['id', 'chore_name']
+            },
+            {
+                model: Grocery,
+                attributes: ['id', 'grocery_name']
+            }
         ]
     })
-    .then(dbBillData => {
-        const bills = dbBillData.map(bill => bill.get({ plain: true }));
-        res.render('dashboard', { bills });
+    .then(dbGroupData => {
+        console.log('CAKE', dbGroupData.bills, dbGroupData.chores, dbGroupData.groceries);
+        const group = dbGroupData.get({ plain: true });
+
+        res.render('dashboard', {
+            group,
+            loggedIn: true
+        });
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
 });
-
-router.get('/:id', (req, res) => {
-    Chore.findAll({
-        where: {
-            group_id: req.params.id
-        },
-        attributes: [
-            'id',
-            'chore_name' 
-        ]
-    })
-    .then(dbChoreData => {
-        const chores = dbChoreData.map(chore => chore.get({ plain: true }));
-        res.render('dashboard', { chores });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
-
-router.get('/:id', (req, res) => {
-    Grocery.findAll({
-        where: {
-            group_id: req.params.id
-        },
-        attributes: [
-            'id',
-            'grocery_name' 
-        ]
-    })
-    .then(dbGroceryData => {
-        const groceries = dbGroceryData.map(grocery => grocery.get({ plain: true }));
-        res.render('dashboard', { groceries });
-    })
-    .catch(err => {
-        console.log(err);
-        res.status(500).json(err);
-    });
-});
-
 
 module.exports = router;

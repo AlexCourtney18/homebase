@@ -33,7 +33,7 @@ async function signupFormHandler(event) {
         if (response.ok) {
 
             console.log('success');
-
+            document.location.replace('/homepage');
         } else {
 
             alert(response.statusText);
@@ -54,7 +54,7 @@ async function loginFormHandler(event) {
 
     const password = document.querySelector('#login-password').value.trim();
 
-
+    
     if (email && password) {
 
         const response = await fetch('/api/users/login', {
@@ -74,7 +74,7 @@ async function loginFormHandler(event) {
 
 
         if (response.ok) {
-
+            console.log('login success');
             document.location.replace('/homepage');
 
         } else {

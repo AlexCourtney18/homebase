@@ -2,7 +2,7 @@
   "name": "homebase",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js", 
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -26,6 +26,7 @@
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
     "mysql2": "^2.3.3",
-    "sequelize": "^6.21.4"
+    "sequelize": "^6.21.4",
+    "winwheel": "^1.0.1"
   }
 }

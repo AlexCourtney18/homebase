@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Bill, Group, Chore } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -65,7 +66,7 @@ router.post('/', (req, res) => {
     })
 //}); //works. Will need to uncomment this line and the session data for sessions
 
-router.post('/login', (req, res) => {
+router.post('/login', withAuth, (req, res) => {
     User.findOne({
         where: {
             email: req.body.email

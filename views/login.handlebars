@@ -1,44 +1,38 @@
-<body>
-    <div class="jumbotron col-12 d-flex flex-column p-auto m-auto">
-        <div class="text-center">
-            <h1 class="display-2">Homebase</h1>
-        </div>
-        <div class="text-center">
-            <h5 class="font-italic">"tag line here"</h5>
-        </div>
-        <div class="form"></div>
+<div class="jumbotron col-12 d-flex flex-column p-auto m-auto">
+    <div class="text-center">
+        <h1 class="display-2">Homebase</h1>
     </div>
-    <div class="col-12 d-flex flex-row m-auto p-auto">
-        <form class="col-6 py-5 px-3 my-5">
-            <h2 class="display-4 text-center">
-                Create Base
+    <div class="text-center">
+        <h5 class="font-italic">"tag line here"</h5>
+    </div>
+    <div class="form"></div>
+</div>
+<div class="col-12 d-flex flex-row m-auto p-auto">
+    <form id="signup-form" class="col-6 py-5 px-3 my-5">
+        <h2 class="display-4 text-center">
+            Sign up!
             </h3>
             <div class="form-group">
-                <input type="text" class="form-control" id="username" placeholder="Username">   
+                <input type="text" class="form-control" id="signup-username" placeholder="Username">
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" id="email" placeholder="Email">   
+                <input type="email" class="form-control" id="signup-email" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="address" placeholder="Address"> 
-                <small id="addressHelp" class="form-text text-muted">Include your city and State</small> 
+                <input type="password" class="form-control" id="signup-password" placeholder="Password">
             </div>
-            <div class="form-group">
-                <input type="password" class="form-control" id="password" placeholder="Create a password">   
-            </div>
-            <button type="submit" class="btn btn-info btn-block">Submit</button>
-        </form>
-        <form class="col-6 py-5 px-3 my-5 border-left">
-            <h2 class="display-4 text-center">
-                Login to Base
+            <button type="submit" id="submit" class="btn btn-info btn-block">Submit</button>
+    </form>
+    <form id="login-form" class="col-6 py-5 px-3 my-5 border-left">
+        <h2 class="display-4 text-center">
+            Login to Base
             </h3>
-            <div class="form-group pt-2 mt-5">
-                <input type="text" class="form-control" id="login-username" placeholder="Username">   
+            <div class="form-group">
+                <input type="text" class="form-control" id="login-email" placeholder="Email">
             </div>
-            <div class="form-group py-3 mt-3">
-                <input type="password" class="form-control" id="login-password" placeholder="Password">   
+            <div class="form-group py-2 mt-3">
+                <input type="password" class="form-control" id="login-password" placeholder="Password">
             </div>
-            <button type="login" class="btn btn-success btn-block mt-3">Login</button>
-        </form>
-    </div>
-</body>
+            <button type="submit" id="login" class="btn btn-success btn-block">Login</button>
+    </form>
+</div>

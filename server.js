@@ -9,7 +9,7 @@ const hbs = exphbs.create({ helpers });
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-    secret: 'Super awesome top secret secret',
+    secret: process.env.DBSECRET,
     cookie: {
         //logic for session timeout if wanted
     },
@@ -26,10 +26,11 @@ const PORT = process.env.PORT || 3001;
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(session(sess));
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname,'public')));
+app.use(session(sess));
 
 app.use(routes);
 

@@ -1,4 +1,5 @@
 async function logout() {
+    console.log('MELON CORN SUMMER')
     const answer = await fetch('/api/users/logout', {
         method: 'post',
         headers: {'content-type' : 'application/json'}
@@ -11,4 +12,4 @@ async function logout() {
     }
 }
 
-document.querySelector('#').addEventListener('click', logout);
+document.querySelector('#logout').addEventListener('click', logout);

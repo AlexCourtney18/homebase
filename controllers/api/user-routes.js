@@ -66,7 +66,7 @@ router.post('/', (req, res) => {
         })
 }); //works. Will need to uncomment this line and the session data for sessions
 
-router.post('/login', withAuth, (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email

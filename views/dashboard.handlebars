@@ -6,16 +6,16 @@
             </div>
       </nav>
       <main class="container">
-        <section class="row my-2">
-          <h3 class="col-md">Group Name: Party House</h3>
-          <h3 class="col-md">Address: 123 Main</h3>
-          <h3 class="col-md">Group Id: 12345</h3>
-          <button type="button" class="btn btn-outline-danger btn-block" id="delete-btn">Delete Base</button>
+        <section class="row my-4">
+          <h3 class="col-md group-text">Group Name: <span class="group-info">Party House</span></h3>
+          <h3 class="col-md group-text">Address: <span class="group-info">123 Main</span></h3>
+          <h3 class="col-md group-text">Group Id: <span class="group-info">12345</span></h3>
+          <button type="button" class="btn btn-outline-info btn-block" id="delete-btn">Delete Base</button>
         </section>
         <section class="row">
           <div class="col-md">
             <form id="grocery-form">
-              <h3 class="text-center">Grocery List</h3>
+              <h3 class="text-center"><i class="fa-sharp fa-solid fa-basket-shopping"></i> Groceries</h3>
               <div class="form-group">
                 <input
                   type="text"
@@ -27,26 +27,26 @@
               <button
                 type="submit"
                 id="add-grocery"
-                class="btn btn-success btn-block"
+                class="btn btn-outline-success btn-block"
               >
                 Add
               </button>
             </form>
   
             <div class="list-container mt-2">
-              <h6>This week we need...</h6>
+              <h6 id="grocery-heading">This week we need...</h6>
               <div class="card">
                 <ul class="list-group" id="saved-groceries">
-                  <li>Grocery Item</li>
+                  <li class="list-group-item">Grocery Item</li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="col-md">
             <form id="bill-form">
-              <h3 class="text-center border-left border-right">Bills</h3>
+              <h3 class="text-center border-left border-right"><i class="fa-sharp fa-solid fa-file-invoice-dollar"></i> Bills</h3>
               <div
-                class="form-group"
+                class="form-group">
                 <input
                 class="bill-title form-control"
                 placeholder="Name of Bill"
@@ -62,7 +62,7 @@
               <button
                 type="button"
                 id="add-bill"
-                class="btn btn-success btn-block"
+                class="btn btn-outline-success btn-block"
               >
                 Add
               </button>
@@ -70,24 +70,23 @@
             <div class="list-container mt-2">
               <div class="card">
                 <ul class="list-group" id="saved-bills">
-                  <li>Sample Bill</li>
+                  <li class="list-group-item">Sample Bill</li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="col-md">
-            <h3 class="text-center">Chores</h3>
-            <h6>Chore Wheel</h6>
+            <h3 class="text-center"><i class="fa-solid fa-vacuum"></i>Chores</h3>
             <button
               type="button"
               id="spin_button"
-              class="btn btn-info btn-block"
+              class="btn btn-outline-success btn-block"
               onclick="startSpin()"
             >
               Spin
             </button>
             <canvas> Your browser does not support the canvas tag. </canvas>
-            <script src="../public/javascript/winwheel.js"></script>
+            <script src="/javascript/winwheel.js"></script>
           </div>
         </section>
       </main>

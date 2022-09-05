@@ -35,18 +35,18 @@ router.get('/:id', (req, res) => {
                 ]
             }
         ]
+    }) 
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(404).json({ message: 'No user found with this id' });
+            return;
+        }
+        res.json(dbUserData);
     })
-        .then(dbUserData => {
-            if (!dbUserData) {
-                res.status(404).json({ message: 'No user found with this id' });
-                return;
-            }
-            res.json(dbUserData);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json(err);
-        });
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
 }); //works
 
 router.post('/', (req, res) => {
@@ -55,15 +55,15 @@ router.post('/', (req, res) => {
         email: req.body.email,
         password: req.body.password
     })
-        .then(dbUserData => {
-            req.session.save(() => {
-                req.session.user_id = dbUserData.id;
-                req.session.username = dbUserData.username;
-                req.session.loggedIn = true;
+    .then(dbUserData => {
+        req.session.save(() => {
+            req.session.user_id = dbUserData.id;
+            req.session.username = dbUserData.username;
+            req.session.loggedIn = true;
 
-                res.json(dbUserData);
-            });
-        })
+            res.json(dbUserData);
+        });
+    })
 }); //works. Will need to uncomment this line and the session data for sessions
 
 router.post('/login', (req, res) => {
@@ -74,7 +74,7 @@ router.post('/login', (req, res) => {
     }).then(dbUserData => {
         if (!dbUserData) {
             res.status(400).json({ message: 'No user with that email address!' });
-            console.log("FAIL TRUTHY TEST");
+            console.log("FAIL TRUTHY TEST"); 
             return;
         }
 

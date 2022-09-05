@@ -17,8 +17,9 @@ router.get('/', (req, res) => {
         ]
     })
         .then(dbGroupData => {
-            console.log(dbGroupData);
+            //console.log(dbGroupData);
             const groups = dbGroupData.map(group => group.get({ plain: true }));
+            console.log(groups);
             res.render('homepage', { groups, loggedIn: true });
         })
         .catch(err => {

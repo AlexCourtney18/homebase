@@ -1,94 +1,72 @@
-    <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-0 h1">HomeBase</span>
-        <div class="justify-content-left d-flex">
-            <a class="nav-link" href="/homepage">Homepage</a>
-              <button class="navbar-item btn mx-2 btn-outline-secondary" id="logout">Logout</button>
-            </div>
-      </nav>
-      <main class="container">
-        <section class="row my-4">
-          <h3 class="col-md group-text">Group Name: <span class="group-info">Party House</span></h3>
-          <h3 class="col-md group-text">Address: <span class="group-info">123 Main</span></h3>
-          <h3 class="col-md group-text">Group Id: <span class="group-info">12345</span></h3>
-          <button type="button" class="btn btn-info btn-block" id="delete-btn">Delete Base</button>
-        </section>
-        <section class="row">
-          <div class="col-md">
-            <form id="grocery-form">
-              <h3 class="text-center"><i class="fa-sharp fa-solid fa-basket-shopping"></i> Groceries</h3>
-              <div class="form-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="grocery-name"
-                  placeholder="Grocery Name"
-                />
-              </div>
-              <button
-                type="submit"
-                id="add-grocery"
-                class="btn btn-success btn-block"
-              >
-                Add
-              </button>
-            </form>
-  
-            <div class="list-container mt-2">
-              <h6 id="grocery-heading">This week we need...</h6>
-              <div class="card">
-                <ul class="list-group" id="saved-groceries">
-                  <li class="list-group-item">Grocery Item</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <form id="bill-form">
-              <h3 class="text-center border-left border-right"><i class="fa-sharp fa-solid fa-file-invoice-dollar"></i> Bills</h3>
-              <div
-                class="form-group">
-                <input
-                class="bill-title form-control"
-                placeholder="Name of Bill"
-                type="text"
-              >
-                <textarea
-                  class="bill-textarea form-control"
-                  placeholder="Bill Information"
-                ></textarea>
-              </div>
-            </form>
-            <div class="d-flex justify-content-between">
-              <button
-                type="button"
-                id="add-bill"
-                class="btn btn-success btn-block"
-              >
-                Add
-              </button>
-            </div>
-            <div class="list-container mt-2">
-              <div class="card">
-                <ul class="list-group" id="saved-bills">
-                  <li class="list-group-item">Sample Bill</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <h3 class="text-center"><i class="fa-solid fa-vacuum"></i>Chores</h3>
-            <button
-              type="button"
-              id="spin_button"
-              class="btn btn-success btn-block"
-              onclick="startSpin()"
-            >
-              Spin
-            </button>
-            <canvas> Your browser does not support the canvas tag. </canvas>
-            <script src="/javascript/winwheel.js"></script>
-          </div>
-        </section>
-      </main>
-  
-      <script src="/javascript/logout.js"></script>
+<nav class="navbar navbar-dark bg-dark">
+  <span class="navbar-brand mb-0 h1">HomeBase</span>
+  <div class="justify-content-left d-flex">
+    <a class="nav-link" href="/homepage">Homepage</a>
+    <button class="navbar-item btn mx-2 btn-outline-secondary" id="logout">Logout</button>
+  </div>
+</nav>
+<main class="container">
+  <section class="row my-4">
+    <h3 class="col-md group-text">Group Name: <span class="group-info">Party House</span></h3>
+    <h3 class="col-md group-text">Address: <span class="group-info">123 Main</span></h3>
+    <h3 class="col-md group-text">Group Id: <span class="group-info">12345</span></h3>
+    <button type="button" class="btn btn-info btn-block" id="delete-btn">Delete Base</button>
+  </section>
+  <section class="row">
+    <div class="col-md">
+      <form id="grocery-form">
+        <h3 class="text-center"><i class="fa-sharp fa-solid fa-basket-shopping"></i> Groceries</h3>
+        <div class="form-group">
+          <input type="text" class="form-control" id="grocery-name" placeholder="Grocery Name" />
+        </div>
+        <button type="submit" id="add-grocery" class="btn btn-success btn-block">
+          Add
+        </button>
+      </form>
+      {{#if groups.length}}
+      <div class="list-container mt-2">
+        <h6 id="grocery-heading">This week we need...</h6>
+        <div class="card">
+          <ul class="list-group" id="saved-groceries">
+            {{#each groups as |group|}}
+            <li class="list-group-item">{{grocery_name}}</li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+      {{/if}}
+    </div>
+    <div class="col-md">
+      <form id="bill-form">
+        <h3 class="text-center border-left border-right"><i class="fa-sharp fa-solid fa-file-invoice-dollar"></i> Bills
+        </h3>
+        <div class="form-group">
+          <input class="bill-title form-control" placeholder="Name of Bill" type="text">
+          <textarea class="bill-textarea form-control" placeholder="Bill Information"></textarea>
+        </div>
+      </form>
+      <div class="d-flex justify-content-between">
+        <button type="button" id="add-bill" class="btn btn-success btn-block">
+          Add
+        </button>
+      </div>
+      <div class="list-container mt-2">
+        <div class="card">
+          <ul class="list-group" id="saved-bills">
+            <li class="list-group-item">Sample Bill</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-md">
+      <h3 class="text-center"><i class="fa-solid fa-vacuum"></i>Chores</h3>
+      <button type="button" id="spin_button" class="btn btn-success btn-block" onclick="startSpin()">
+        Spin
+      </button>
+      <canvas> Your browser does not support the canvas tag. </canvas>
+      <script src="/javascript/winwheel.js"></script>
+    </div>
+  </section>
+</main>
+
+<script src="/javascript/logout.js"></script>

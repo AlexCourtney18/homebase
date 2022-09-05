@@ -10,9 +10,10 @@
           <h3 class="col-md group-text">Group Name: <span class="group-info">Party House</span></h3>
           <h3 class="col-md group-text">Address: <span class="group-info">123 Main</span></h3>
           <h3 class="col-md group-text">Group Id: <span class="group-info">12345</span></h3>
-          <button type="button" class="btn btn-outline-info btn-block" id="delete-btn">Delete Base</button>
+          <button type="button" class="btn btn-info btn-block" id="delete-btn">Delete Base</button>
         </section>
         <section class="row">
+          <!-- Grocery container begins !-->
           <div class="col-md">
             <form id="grocery-form">
               <h3 class="text-center"><i class="fa-sharp fa-solid fa-basket-shopping"></i> Groceries</h3>
@@ -27,7 +28,7 @@
               <button
                 type="submit"
                 id="add-grocery"
-                class="btn btn-outline-success btn-block"
+                class="btn btn-success btn-block"
               >
                 Add
               </button>
@@ -42,53 +43,56 @@
               </div>
             </div>
           </div>
-          <div class="col-md">
-            <form id="bill-form">
-              <h3 class="text-center border-left border-right"><i class="fa-sharp fa-solid fa-file-invoice-dollar"></i> Bills</h3>
-              <div
-                class="form-group">
-                <input
-                class="bill-title form-control"
-                placeholder="Name of Bill"
-                type="text"
-              >
-                <textarea
-                  class="bill-textarea form-control"
-                  placeholder="Bill Information"
-                ></textarea>
-              </div>
-            </form>
-            <div class="d-flex justify-content-between">
-              <button
-                type="button"
-                id="add-bill"
-                class="btn btn-outline-success btn-block"
-              >
-                Add
-              </button>
-            </div>
-            <div class="list-container mt-2">
-              <div class="card">
-                <ul class="list-group" id="saved-bills">
-                  <li class="list-group-item">Sample Bill</li>
-                </ul>
-              </div>
-            </div>
+          <!-- Bill container begins !-->
+    <div class="content-area col-md">
+        <h3 class="text-center"><i class="fa-sharp fa-solid fa-file-invoice-dollar"></i> Bills</h3>
+          <div class="form-group">
+            <input type="text" placeholder="New Bill" class="form-control" id="addBill">
           </div>
+          <div class="form-group">
+            <button class="btn btn-success btn-block" id="submitBill">Add</button>
+
+          </div>
+        <ul class="list-group" id="billList">
+        </ul>
+      </div>
+    </div>
+    </div>
+  <!-- Chores container begins !-->
           <div class="col-md">
-            <h3 class="text-center"><i class="fa-solid fa-vacuum"></i>Chores</h3>
+            <i id="deleteBill" class="delete-icon glyphicon glyphicon-trash"></i>
+            <h3 class="text-center"><i class="fa-solid fa-broom"></i>Chores</h3>
             <button
               type="button"
               id="spin_button"
-              class="btn btn-outline-success btn-block"
-              onclick="startSpin()"
+              class="btn btn-success btn-block"
+              onclick="theWheel.startAnimation();"
+
             >
               Spin
             </button>
-            <canvas> Your browser does not support the canvas tag. </canvas>
-            <script src="/javascript/winwheel.js"></script>
+            <canvas id="canvas" width="880" height="300"> Your browser does not support the canvas tag. </canvas>
+            <script>let theWheel = new Winwheel({         
+        'numSegments' : 4,
+        'segments'    :
+        [
+            {'fillStyle' : '#eae56f', 'text' : 'Segment 1'},
+            {'fillStyle' : '#89f26e', 'text' : 'Segment 2'},
+            {'fillStyle' : '#7de6ef', 'text' : 'Segment 3'},
+            {'fillStyle' : '#e7706f', 'text' : 'Segment 4'}
+        ],
+        'animation' :                   // Note animation properties passed in constructor parameters.
+    {
+        'type'     : 'spinToStop',  // Type of animation.
+        'duration' : 5,             // How long the animation is to take in seconds.
+        'spins'    : 8              // The number of complete 360 degree rotations the wheel is to do.
+    }
+    });
+            </script>
           </div>
         </section>
       </main>
   
+      <script src="/javascript/grocery.js"></script>
+      <script src="/javascript/bill.js"></script>
       <script src="/javascript/logout.js"></script>

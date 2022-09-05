@@ -69,15 +69,23 @@
             >
               Spin
             </button>
-            <canvas id="canvas" width="880" height="300"> Your browser does not support the canvas tag. </canvas>
+            <div id="canvasContainer">
+            <canvas id="canvas" width="400" height="400"> Your browser does not support the canvas tag. </canvas>
+            </div>
             <script>let theWheel = new Winwheel({         
-        'numSegments' : 4,
+        'outerRadius' : 110,
+        'centerX' : 200,
+        'centerY' : 201,
+        'numSegments' : 6,
+        'textFontFamily' : 'Lucida',
         'segments'    :
         [
-            {'fillStyle' : '#eae56f', 'text' : 'Segment 1'},
-            {'fillStyle' : '#89f26e', 'text' : 'Segment 2'},
-            {'fillStyle' : '#7de6ef', 'text' : 'Segment 3'},
-            {'fillStyle' : '#e7706f', 'text' : 'Segment 4'}
+            {'fillStyle' : '#e3f1e2', 'text' : 'Sweep'},
+            {'fillStyle' : '#6BBC83', 'text' : 'Laundry'},
+            {'fillStyle' : '#D2DCD3', 'text' : 'Lawncare'},
+            {'fillStyle' : '#91BFBC', 'text' : 'Bathroom'},
+            {'fillStyle' : '#badabf', 'text' : 'Groceries'},
+            {'fillStyle' : '#41635E', 'text' : 'Dishes'},
         ],
         'animation' :                   // Note animation properties passed in constructor parameters.
     {

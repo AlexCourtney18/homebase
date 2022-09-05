@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <nav class="navbar navbar-light bg-light">
         <!--fix nav bar below from collapsing-->
         <div class="d-flex justify-content-between">
@@ -8,45 +9,58 @@
               </div>
               </div>
               </div>
+=======
+<nav class="navbar navbar-dark bg-dark mb-4">
+        <span class="navbar-brand h1">HomeBase</span>
+        <div class="justify-content-left d-flex">
+              <button class="navbar-item btn mx-2 btn-outline-secondary" id="logout">Logout</button>
+              <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholders="Base ID" aria-label="BaseID">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Find Base</button>
+              </form>
+            </div>
+>>>>>>> f35a5af491333637c3db09484e6b98bcf3d651a4
       </nav>
 <div class="col-12 d-flex flex-row  m-auto p-auto">
-        <section class="col-4 border-right border-dark">
-          <h4 class="text-center">My Bases</h4>
-          <button id="addressBtn" class="btn btn-dark btn-block">123 Address </button>
-        
-          <form class="py-5">
-              <h4 class=" text-center">
-                  Create Base
-              </h4>
-              <div class="form-group">
-                  <input type="text" class="form-control" id="baseName" placeholder="Base Name">   
-              </div>
-              <div class="form-group">
-                  <input type="text" class="form-control" id="address" placeholder="Address"> 
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" id="address" placeholder="City"> 
+    <section class="col-4 border-right border-dark">
+        <h4 class="text-center">My Bases</h4>
+        <button id="addressBtn" class="btn btn-info btn-block">123 Address </button>
+
+        <form id="group-signup" class="py-5">
+            <h4 class=" text-center">
+                Create Base
+            </h4>
+            <div class="form-group">
+                <input type="text" class="form-control" id="baseName" placeholder="Base Name">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="address" placeholder="State"> 
+                <input type="text" class="form-control" id="address" placeholder="Address">
             </div>
-              <button type="submit" class="btn btn-info btn-block">Submit</button>
-          </form>
-        </section>
-        <section class="col-8">
-            <div class="border-bottom border-dark">
-                <h2 class="text-center">Upcoming Bills</h2>
-                <ul>
-                    <li>Sample Bill</li>
-                    <li>Sample Bill</li>
-                </ul>
+            <div class="form-group">
+                <input type="text" class="form-control" id="address-city" placeholder="City">
             </div>
-            <div>
-                <h2 class="text-center">Paid Bills</h2>
-                <ul>
-                    <li>Paid Bill</li>
-                    <li>Paid Bill</li>
-                </ul>
+            <div class="form-group">
+                <input type="text" class="form-control" id="address-state" placeholder="State">
             </div>
-        </section>
-          </div>
+            <button type="submit" class="btn btn-success btn-block">Submit</button>
+        </form>
+    </section>
+    <section class="col-8">
+        <div class="border-bottom border-dark">
+            <h2 class="text-center">Upcoming Bills</h2>
+            <ul class="list-group" id="upcoming-bills">
+                <li class="list-group-item">Sample Bill</li>
+                <li class="list-group-item">Sample Bill</li>
+            </ul>
+        </div>
+        <div>
+            <h2 class="text-center">Paid Bills</h2>
+            <ul class="list-group" id="paid-bills">
+                <li class="list-group-item">Paid Bill</li>
+                <li class="list-group-item">Paid Bill</li>
+            </ul>
+        </div>
+    </section>
+    <script src="/javascript/logout.js"></script>
+    <script src="/javascript/creategroup.js"></script>
+</div> 

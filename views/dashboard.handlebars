@@ -30,7 +30,7 @@
         <div class="card">
           <ul class="list-group" id="saved-groceries">
             {{#each groups as |group|}}
-            <li class="list-group-item">{{grocery_name}}</li>
+            <li data-id="{{id}}" class="list-group-item">{{grocery_name}} <i id="delete-grocery" class="delete-icon fa-solid fa-trash"></i></li>
             {{/each}}
           </ul>
         </div>
@@ -39,17 +39,22 @@
     <!-- Bill container begins !-->
     <div class="content-area col-md">
       <h3 class="text-center"><i class="fa-sharp fa-solid fa-file-invoice-dollar"></i> Bills</h3>
-      <div class="form-group">
-        <input type="text" placeholder="New Bill" class="form-control" id="addBill">
-      </div>
-      <div class="form-group">
-        <button class="btn btn-success btn-block" id="submitBill">Add</button>
+      <form id="billForm" class="form-group">
+        <input type="text" placeholder="Company Name" class="form-control" id="companyName">
+        <input type="text" placeholder="Amount Due" class="form-control" id="amountDue">
+        <input type="text" placeholder="Due Date mm/dd/yy" class="form-control" id="dueDate">
+        <button class="btn btn-success btn-block" type="submit" id="submitBill">Add</button>
+      </form>
 
+      <div class="list-container mt-2">
+        <div class="card">
+          <ul class="list-group" id="billList">
+            {{#each bills as |bill|}}
+              <li data-id="{{id}}" class="list-group-item">{{company}} ${{amount_due}} {{due_date}} <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i></li>
+            {{/each}}
+          </ul>
+        </div>
       </div>
-      <ul class="list-group" id="billList">
-      </ul>
-    </div>
-    </div>
     </div>
     <!-- Chores container begins !-->
     <div class="col-md">

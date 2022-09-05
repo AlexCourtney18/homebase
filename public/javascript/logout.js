@@ -5,10 +5,11 @@ async function logout() {
     });
 
     if (answer.ok) {
+        console.log('logged out');
         document.location.replace('/');
     } else {
         alert(answer.statusText);
     }
 }
 
-document.querySelector('#').addEventListener('click', logout);
+document.querySelector('#logout').addEventListener('click', logout);

@@ -17,12 +17,9 @@ router.get('/', (req, res) => {
         ]
     })
         .then(dbGroupData => {
-<<<<<<< Updated upstream
             //console.log(dbGroupData);
-=======
->>>>>>> Stashed changes
             const groups = dbGroupData.map(group => group.get({ plain: true }));
-            console.log(groups);
+            //console.log(groups);
             res.render('homepage', { groups, loggedIn: true });
         })
         .catch(err => {

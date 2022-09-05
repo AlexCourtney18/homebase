@@ -1,13 +1,13 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Tenant extends Model {}
+class Member extends Model {}
 
-Tenant.init(
+Member.init(
     {
         id: {
             type: DataTypes.INTEGER,
-            primaryKey: true,
+            allowNull: false,
             autoIncrement: true
         },
         user_id: {
@@ -18,7 +18,7 @@ Tenant.init(
                 key: 'id'
             }
         },
-        group_id: {
+        post_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -32,8 +32,8 @@ Tenant.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'tenant'
+        modelName: 'vote'
     }
 );
 
-module.exports = Tenant;
+module.exports = Member;

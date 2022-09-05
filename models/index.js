@@ -3,7 +3,6 @@ const Bill = require('./Bill');
 const Group = require('./Group');
 const Chore = require('./Chore');
 const Grocery = require('./Grocery');
-const Tenant = require('./Tenant');
 
 Group.belongsTo(User, {
     foreignKey: 'user_id'
@@ -11,12 +10,6 @@ Group.belongsTo(User, {
 
 User.hasMany(Group, {
     foreignKey: 'user_id'
-});
-
-Group.belongsToMany(User, {
-    through: Tenant,
-    as: 'joined_group',
-    foreignKey: 'group_id'
 });
 
 Bill.belongsTo(Group, {

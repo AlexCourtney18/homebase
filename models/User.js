@@ -37,8 +37,7 @@ User.init(
             validate: {
                 len: [4]
             }
-        },
-        // bills: [Bill]
+        }
     },
     {
         hooks: {

@@ -16,7 +16,11 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
+<<<<<<< HEAD
 });
+=======
+}); //works
+>>>>>>> feab44b193b164e291d9feea95d642a0a8f9e9c7
 
 router.get('/:id', (req, res) => {
     Grocery.findOne({
@@ -41,11 +45,19 @@ router.get('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+<<<<<<< HEAD
 });
 
 router.post('/', (req, res) => {
     Grocery.create({
         Grocery_name: req.body.grocery_name,
+=======
+}); //works
+
+router.post('/', (req, res) => {
+    Grocery.create({
+        grocery_name: req.body.grocery_name,
+>>>>>>> feab44b193b164e291d9feea95d642a0a8f9e9c7
         group_id: req.body.group_id
     })
     .then(dbGroceryData => res.json(dbGroceryData))
@@ -53,12 +65,20 @@ router.post('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+<<<<<<< HEAD
 }); 
+=======
+}); //works
+>>>>>>> feab44b193b164e291d9feea95d642a0a8f9e9c7
 
 router.put('/:id', (req, res) => {
     Grocery.update(
         {
+<<<<<<< HEAD
             Grocery_name: req.body.grocery_name,
+=======
+            grocery_name: req.body.grocery_name,
+>>>>>>> feab44b193b164e291d9feea95d642a0a8f9e9c7
             group_id: req.body.group_id
         },
         {
@@ -78,7 +98,11 @@ router.put('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+<<<<<<< HEAD
 }); 
+=======
+}); //works
+>>>>>>> feab44b193b164e291d9feea95d642a0a8f9e9c7
 
 router.delete('/:id', (req, res) => {
     Grocery.destroy({
@@ -97,7 +121,11 @@ router.delete('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+<<<<<<< HEAD
 }); 
+=======
+}); //works
+>>>>>>> feab44b193b164e291d9feea95d642a0a8f9e9c7
 
 
 module.exports = router;

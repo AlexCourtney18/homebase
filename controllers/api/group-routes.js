@@ -52,6 +52,7 @@ router.get('/:id', (req, res) => {
 }); //works
 
 router.post('/', (req, res) => {
+<<<<<<< HEAD
     Group.create({
         group_name: req.body.group_name,
         address: req.body.address,
@@ -62,6 +63,21 @@ router.post('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
+=======
+
+    if (req.session) {
+        Group.create({
+            group_name: req.body.group_name,
+            address: req.body.address,
+            user_id: req.session.user_id
+        })
+        .then(dbGroupData => res.json(dbGroupData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+    }
+>>>>>>> feab44b193b164e291d9feea95d642a0a8f9e9c7
 }); //works
 
 router.put('/:id', (req, res) => {

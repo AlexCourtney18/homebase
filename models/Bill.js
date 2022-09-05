@@ -1,6 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
+<<<<<<< HEAD
 //const sequelize = require('../config/connection');
 const sequelize = require('../test-connection');
+=======
+const sequelize = require('../config/connection');
+>>>>>>> feab44b193b164e291d9feea95d642a0a8f9e9c7
 
 class Bill extends Model {}
 

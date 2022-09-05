@@ -1,14 +1,19 @@
 async function createItem(event) {
     event.preventDefault();
+    console.log("CREATE GROCERY!!!!");
 
-    const groceryItem = document.querySelector('input[name=""]').value;
-    const grocery_name = document.querySelector('input[name=""]').value;
+    // const groceryItem = document.querySelector('input[name=""]').value;
+    const grocery_name = document.querySelector('input[id="grocery-name"]').value.trim();
+    const group_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1 ];
+    console.log(grocery_name, "GROCERY NAME!");
+    console.log(group_id, "GROUP ID!");
 
     const answer = await fetch(`/api/groceries`,{
         method: 'POST',
         body: JSON.stringify({
-            groceryItem,
-            grocery_name
+            grocery_name,
+            group_id
         }),
         headers: {
             'Content-Type': 'application/json'
@@ -64,6 +69,6 @@ async function deleteItem(event) {
     }
 }
 
-document.querySelector('').addEventListener('submit', createItem);
-document.querySelector('').addEventListener('submit', updateItem);
-document.querySelector('').addEventListener('click', deleteItem);
+document.querySelector('#grocery-form').addEventListener('submit', createItem);
+// document.querySelector('').addEventListener('submit', updateItem);
+// document.querySelector('').addEventListener('click', deleteItem);

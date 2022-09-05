@@ -1,14 +1,13 @@
-<nav class="navbar navbar-light bg-light">
-        <div class="d-flex justify-content-between">
+<nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">HomeBase</span>
-        <div id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              {{!-- <a class="nav-item nav-link" href="#">Logout</a> --}}
-              <button id="logout">Logout</button>
-              </div>
-              </div>
-              </div>
-      </nav>
+        <div class="justify-content-left d-flex">
+              <button class="navbar-item btn mx-2 btn-outline-secondary" id="logout">Logout</button>
+              <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholders="Base ID" aria-label="BaseID">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Find Base</button>
+              </form>
+        </div>
+</nav>
 <div class="col-12 d-flex flex-row  m-auto p-auto">
     <section class="col-4 border-right border-dark">
         <h4 class="text-center">My Bases</h4>
@@ -51,4 +50,4 @@
     </section>
     <script src="/javascript/logout.js"></script>
     <script src="/javascript/creategroup.js"></script>
-</div>
+</div> 

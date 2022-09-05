@@ -1,0 +1,46 @@
+body {
+    background-color: #c5c6c7;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+/*login styles below */
+h1 {
+    color:#0B0C10;
+}
+
+h2 {
+    color:#0B0C10;
+}
+
+/* homepage styles below */
+
+a {
+    color: #66fcf1
+}
+
+.group-text {
+    color: #0B0C10;
+    font-weight: 900;
+}
+
+.group-info {
+    color: #66fcf1
+}
+
+h3 {
+    color: #0B0C10;  
+}
+
+#grocery-heading {
+    color: whitesmoke;
+}
+
+.list-group-item {
+    background-color: #343a40;
+    list-style: none;
+    color: whitesmoke; 
+}
+
+h6 {
+    color: #17a2b8
+}

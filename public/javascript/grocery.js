@@ -3,9 +3,11 @@ async function createItem(event) {
     console.log("CREATE GROCERY!!!!");
 
     // const groceryItem = document.querySelector('input[name=""]').value;
-    const grocery_name = document.querySelector('input[name="grocery-name"]').value;
+    const grocery_name = document.querySelector('input[id="grocery-name"]').value.trim();
     const group_id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1 ];
+    console.log(grocery_name, "GROCERY NAME!");
+    console.log(group_id, "GROUP ID!");
 
     const answer = await fetch(`/api/groceries`,{
         method: 'POST',
@@ -67,6 +69,6 @@ async function deleteItem(event) {
     }
 }
 
-document.querySelector('#add-grocery').addEventListener('submit', createItem);
+document.querySelector('#grocery-form').addEventListener('submit', createItem);
 // document.querySelector('').addEventListener('submit', updateItem);
 // document.querySelector('').addEventListener('click', deleteItem);

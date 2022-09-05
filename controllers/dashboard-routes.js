@@ -31,10 +31,10 @@ router.get('/:id', withAuth, (req, res) => {
     })
     .then(dbGroupData => {
         // console.log('CAKE', dbGroupData.bills, dbGroupData.chores, dbGroupData.groceries);
-        const groups = dbGroupData.groceries.map(group => group.get({ plain: true }));
-        console.log(groups);
-
+        const groceries = dbGroupData.groceries.map(group => group.get({ plain: true }));
+        const groups = dbGroupData.get({ plain: true });
         res.render('dashboard', {
+            groceries,
             groups,
             loggedIn: true
         });

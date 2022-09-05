@@ -30,7 +30,7 @@ async function createItem(event) {
 async function updateItem(event) {
     event.preventDefault();
 
-    const groceryItem = document.querySelector('input[name=""]').value.trim();
+    const groceryItem = document.querySelector('input[name="grocery-name"]').value.trim();
     const id = window.location.toString().split('/')[
         window.location.toString().split('/').length - 1
     ];
@@ -70,5 +70,5 @@ async function deleteItem(event) {
 }
 
 document.querySelector('#grocery-form').addEventListener('submit', createItem);
-// document.querySelector('').addEventListener('submit', updateItem);
+// document.querySelector('#saved-groceries').addEventListener('submit', updateItem);
 // document.querySelector('').addEventListener('click', deleteItem);

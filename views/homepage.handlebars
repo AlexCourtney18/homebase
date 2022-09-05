@@ -1,18 +1,17 @@
-<nav class="navbar navbar-light bg-light">
-        <div class="d-flex justify-content-between">
-        <span class="navbar-brand mb-0 h1">HomeBase</span>
-        <div id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              {{!-- <a class="nav-item nav-link" href="#">Logout</a> --}}
-              <button id="logout">Logout</button>
-              </div>
-              </div>
-              </div>
+<nav class="navbar navbar-dark bg-dark mb-4">
+        <span class="navbar-brand h1">HomeBase</span>
+        <div class="justify-content-left d-flex">
+              <button class="navbar-item btn mx-2 btn-outline-secondary" id="logout">Logout</button>
+              <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholders="Base ID" aria-label="BaseID">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Find Base</button>
+              </form>
+            </div>
       </nav>
 <div class="col-12 d-flex flex-row  m-auto p-auto">
     <section class="col-4 border-right border-dark">
         <h4 class="text-center">My Bases</h4>
-        <button id="addressBtn" class="btn btn-dark btn-block">123 Address </button>
+        <button id="addressBtn" class="btn btn-info btn-block">123 Address </button>
 
         <form id="group-signup" class="py-5">
             <h4 class=" text-center">
@@ -30,25 +29,25 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="address-state" placeholder="State">
             </div>
-            <button type="submit" class="btn btn-info btn-block">Submit</button>
+            <button type="submit" class="btn btn-success btn-block">Submit</button>
         </form>
     </section>
     <section class="col-8">
         <div class="border-bottom border-dark">
             <h2 class="text-center">Upcoming Bills</h2>
-            <ul>
-                <li>Sample Bill</li>
-                <li>Sample Bill</li>
+            <ul class="list-group" id="upcoming-bills">
+                <li class="list-group-item">Sample Bill</li>
+                <li class="list-group-item">Sample Bill</li>
             </ul>
         </div>
         <div>
             <h2 class="text-center">Paid Bills</h2>
-            <ul>
-                <li>Paid Bill</li>
-                <li>Paid Bill</li>
+            <ul class="list-group" id="paid-bills">
+                <li class="list-group-item">Paid Bill</li>
+                <li class="list-group-item">Paid Bill</li>
             </ul>
         </div>
     </section>
     <script src="/javascript/logout.js"></script>
     <script src="/javascript/creategroup.js"></script>
-</div>
+</div> 

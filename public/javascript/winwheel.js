@@ -1,7 +1,7 @@
 let wheelSpinning = false;
 
 //function to create and style wheel
-let wheel = new Winwheel({
+const wheel = new Winwheel({
     'numSegments'    : 4,
     'outerRadius'    : 212,
     'textFontSize'   : 28,

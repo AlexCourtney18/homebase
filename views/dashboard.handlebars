@@ -7,9 +7,9 @@
 </nav>
 <main class="container">
   <section class="row my-4">
-    <h3 class="col-md group-text">Group Name: <span class="group-info">Party House</span></h3>
-    <h3 class="col-md group-text">Address: <span class="group-info">123 Main</span></h3>
-    <h3 class="col-md group-text">Group Id: <span class="group-info">12345</span></h3>
+    <h3 class="col-md group-text">Group Name: <span class="group-info">{{groups.group_name}}</span></h3>
+    <h3 class="col-md group-text">Address: <span class="group-info">{{groups.address}}</span></h3>
+    <h3 class="col-md group-text">Group Id: <span class="group-info">{{groups.id}}</span></h3>
     <button type="button" class="btn btn-info btn-block" id="delete-btn">Delete Base</button>
   </section>
   <section class="row">
@@ -29,8 +29,8 @@
         <h6 id="grocery-heading">This week we need...</h6>
         <div class="card">
           <ul class="list-group" id="saved-groceries">
-            {{#each groups as |group|}}
-            <li data-id="{{id}}" class="list-group-item">{{grocery_name}} <i id="delete-grocery" class="delete-icon fa-solid fa-trash"></i></li>
+            {{#each groceries as |grocery|}}
+            <li class="list-group-item">{{grocery_name}}</li>
             {{/each}}
           </ul>
         </div>

@@ -7,6 +7,7 @@ Member.init(
     {
         id: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             allowNull: false,
             autoIncrement: true
         },
@@ -32,7 +33,7 @@ Member.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'vote'
+        modelName: 'member'
     }
 );
 

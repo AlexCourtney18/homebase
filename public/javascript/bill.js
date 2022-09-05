@@ -153,7 +153,3 @@ const getAndRenderBills = () => getBills().then(renderBillList);
 if (window.location.pathname === '/bills') {
     addBillBtn.addEventListener('click', handleBillSave);
 }
-
-//create new bill
-
-//delete bill

@@ -70,5 +70,5 @@ async function deleteItem(event) {
 }
 
 document.querySelector('#grocery-form').addEventListener('submit', createItem);
-// document.querySelector('').addEventListener('submit', updateItem);
+// document.querySelector('#saved-groceries').addEventListener('submit', updateItem);
 // document.querySelector('').addEventListener('click', deleteItem);

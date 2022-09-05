@@ -11,7 +11,10 @@
 <div class="col-12 d-flex flex-row  m-auto p-auto">
     <section class="col-4 border-right border-dark">
         <h4 class="text-center">My Bases</h4>
-        <button id="addressBtn" class="btn btn-info btn-block">123 Address </button>
+
+        {{#each groups as |group|}}
+        <a href="/dashboard/{{group.id}}"><button class="btn btn-info btn-block">{{group.address}}</button></a>
+        {{/each}}
 
         <form id="group-signup" class="py-5">
             <h4 class=" text-center">

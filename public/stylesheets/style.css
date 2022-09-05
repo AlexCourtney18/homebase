@@ -49,3 +49,11 @@ h3 {
 h6 {
     color: #17a2b8
 }
+
+#canvasContainer {
+    background-image: url(/images/basic_wheel_background.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 400px;
+    height: 400px;
+}

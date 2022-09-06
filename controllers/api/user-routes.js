@@ -49,20 +49,6 @@ router.get('/:id', (req, res) => {
     });
 }); //works
 
-// router.get('/button', (req, res) => {
-//     User.findOne({
-//         where: {
-//             id: req.session.id
-//         },
-//         attributes: { exclude: ['password'] }
-//     })
-//     .then(dbUserData => res.json(dbUserData))
-//     .catch(err => {
-//         console.log(err);
-//         res.status(500).json(err);
-//     })
-// })
-
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
@@ -78,7 +64,7 @@ router.post('/', (req, res) => {
             res.json(dbUserData);
         });
     })
-}); //works. Will need to uncomment this line and the session data for sessions
+}); //works.
 
 router.post('/login', (req, res) => {
     User.findOne({

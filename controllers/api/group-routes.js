@@ -46,6 +46,7 @@ router.get('/:id', (req, res) => {
         }
         const plainJane = dbGroupData.get({ plain: true })
         plainJane.key3 = req.session.user_id
+        console.log(req.session.username)
         res.json(plainJane);
     })
     .catch(err => {

@@ -23,7 +23,8 @@ function printGroupCard(data) {
     let id = data.id;
     let group_name = data.group_name;
     let address = data.address;
-    let user_id = data.key3
+    let cuid = data.key3
+    let muid = data.user.id
     let dataCard = document.querySelector('#data-card');
     
     while(dataCard.firstChild) {
@@ -38,7 +39,7 @@ function printGroupCard(data) {
     groupAddress.textContent = address;
     dataCard.appendChild(groupAddress);
 
-    if(id != user_id) {
+    if(muid != cuid) {
         const submitButton = document.createElement('button');
         submitButton.textContent = 'Join Group'
         submitButton.setAttribute('type', 'button');

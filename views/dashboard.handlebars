@@ -50,7 +50,10 @@
         <div class="card">
           <ul class="list-group" id="billList">
             {{#each bills as |bill|}}
-              <li data-id="{{id}}" class="list-group-item">{{company}} ${{amount_due}} {{due_date}} <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i></li>
+              <li data-id="{{id}}" class="list-group-item">{{company}} ${{amount_due}} {{due_date}} 
+                <button class="btn btn-danger" type="button">
+                <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i></li>
+                </button>
             {{/each}}
           </ul>
         </div>

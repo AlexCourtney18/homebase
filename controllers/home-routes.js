@@ -37,4 +37,26 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/', (req, res) => {
+    Group.findOne({
+        where: {
+            id: req.body.id
+        },
+        attributes: [
+            'id',
+            'group_name',
+            'address'
+        ]
+    })
+        .then(dbGroupData => {
+            // const myGroup = dbGroupData.groups.map(melon => melon.get({ plain: true }));
+            const cherry = dbGroupData.get({ plain: true });
+            res.render('homepage', { cherry, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 module.exports = router;

@@ -15,6 +15,9 @@
         {{#each groups as |group|}}
         <a href="/dashboard/{{group.id}}"><button class="btn btn-info btn-block">{{group.address}}</button></a>
         {{/each}}
+        {{#each myGroup as |sgroup|}}
+        <a href="/dashboard/{{sgroup.id}}"><button class="btn btn-info btn-block">{{sgroup.address}}</button></a>
+        {{/each}}
 
         <form id="group-signup" class="py-5">
             <h4 class=" text-center">
@@ -36,7 +39,7 @@
         </form>
     </section>
     <section class="col-8">
-        <div class="border-bottom border-dark">
+        {{!-- <div class="border-bottom border-dark">
             <h2 class="text-center">Upcoming Bills</h2>
             <ul class="list-group" id="upcoming-bills">
                 <li class="list-group-item">Sample Bill</li>
@@ -49,7 +52,7 @@
                 <li class="list-group-item">Paid Bill</li>
                 <li class="list-group-item">Paid Bill</li>
             </ul>
-        </div>
+        </div> --}}
     </section>
     <script src="/javascript/logout.js"></script>
     <script src="/javascript/creategroup.js"></script>

@@ -81,6 +81,7 @@ router.put('/:id', (req, res) => {
 }); //works
 
 router.delete('/:id', (req, res) => {
+    console.log('Data: ',req.params.id);
     Grocery.destroy({
         where: {
             id: req.params.id

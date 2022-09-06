@@ -28,6 +28,10 @@ a {
     font-weight: 900;
 }
 
+.fa-trash {
+    cursor: pointer;
+}
+
 .group-info {
     color: #66fcf1
 }
@@ -44,6 +48,8 @@ h3 {
     background-color: #343a40;
     list-style: none;
     color: whitesmoke; 
+    display: flex;
+    justify-content: space-between;
 }
 
 h6 {

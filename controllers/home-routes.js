@@ -44,16 +44,26 @@ router.get('/:id', (req, res) => {
         },
         attributes: [
             'id',
-            'group_name',
-            'address'
+            'username',
+            'email'
+        ],
+        include: [
+            {
+                model: Group,
+                attributes: ['id', 'group_name', 'address']
+            },
+            {
+                model: Group,
+                attributes: ['id', 'group_name', 'address'],
+                through: Member,
+                as: 'joined_group'
+            }
         ]
     })
         .then(dbGroupData => {
-            // const myGroup = dbGroupData.groups.map(melon => melon.get({ plain: true }));
             const cherry = dbGroupData.get({ plain: true });
             console.log(cherry, 'BARBEQUE');
             res.render('homepage', { cherry, loggedIn: true });
-            //res.json(cherry);
         })
         .catch(err => {
             console.log(err);

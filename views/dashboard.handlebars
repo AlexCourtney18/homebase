@@ -7,9 +7,9 @@
 </nav>
 <main class="container">
   <section class="row my-4">
-    <h3 class="col-md group-text">Group Name: <span class="group-info">Party House</span></h3>
-    <h3 class="col-md group-text">Address: <span class="group-info">123 Main</span></h3>
-    <h3 class="col-md group-text">Group Id: <span class="group-info">12345</span></h3>
+    <h3 class="col-md group-text">Group Name: <span class="group-info">{{groups.group_name}}</span></h3>
+    <h3 class="col-md group-text">Address: <span class="group-info">{{groups.address}}</span></h3>
+    <h3 class="col-md group-text">Group Id: <span class="group-info">{{groups.id}}</span></h3>
     <button type="button" class="btn btn-info btn-block" id="delete-btn">Delete Base</button>
   </section>
   <section class="row">
@@ -29,7 +29,7 @@
         <h6 id="grocery-heading">This week we need...</h6>
         <div class="card">
           <ul class="list-group" id="saved-groceries">
-            {{#each groups as |group|}}
+            {{#each groceries as |grocery|}}
             <li class="list-group-item">{{grocery_name}}</li>
             {{/each}}
           </ul>
@@ -39,17 +39,22 @@
     <!-- Bill container begins !-->
     <div class="content-area col-md">
       <h3 class="text-center"><i class="fa-sharp fa-solid fa-file-invoice-dollar"></i> Bills</h3>
-      <div class="form-group">
-        <input type="text" placeholder="New Bill" class="form-control" id="addBill">
-      </div>
-      <div class="form-group">
-        <button class="btn btn-success btn-block" id="submitBill">Add</button>
+      <form id="billForm" class="form-group">
+        <input type="text" placeholder="Company Name" class="form-control" id="companyName">
+        <input type="text" placeholder="Amount Due" class="form-control" id="amountDue">
+        <input type="text" placeholder="Due Date mm/dd/yy" class="form-control" id="dueDate">
+        <button class="btn btn-success btn-block" type="submit" id="submitBill">Add</button>
+      </form>
 
+      <div class="list-container mt-2">
+        <div class="card">
+          <ul class="list-group" id="billList">
+            {{#each bills as |bill|}}
+              <li data-id="{{id}}" class="list-group-item">{{company}} ${{amount_due}} {{due_date}} <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i></li>
+            {{/each}}
+          </ul>
+        </div>
       </div>
-      <ul class="list-group" id="billList">
-      </ul>
-    </div>
-    </div>
     </div>
     <!-- Chores container begins !-->
     <div class="col-md">

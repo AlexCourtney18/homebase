@@ -35,15 +35,11 @@ async function createBill(event) {
 
 async function deleteBill(event) {
   event.preventDefault();
+  console.log(event.target.id, "ELEMENT ID");
 
-  const id = window.location.toString().split('/')[
-
-    window.location.toString().split('/').length - 1
-
-  ];
-
+   const id = event.target.id
   
-  const answer = await fetch(`api/bills/${id}`, {
+  const answer = await fetch(`/api/bills/${id}`, {
     method: 'DELETE'
   });
   
@@ -56,4 +52,5 @@ async function deleteBill(event) {
 }
 
 document.querySelector('#billForm').addEventListener('submit', createBill);
-document.querySelector('.btn-danger').addEventListener('click', deleteBill);
+document.querySelectorAll('.btn-danger').forEach(bill => {
+  bill.addEventListener('click', deleteBill)});

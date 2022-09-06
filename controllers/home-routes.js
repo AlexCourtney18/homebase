@@ -27,8 +27,8 @@ router.get('/', (req, res) => {
         ]
     })
         .then(dbGroupData => {
-            const myGroup = dbGroupData.groups.map(melon => melon.get({ plain: true }));
-            const groups = dbGroupData.joined_group.map(group => group.get({ plain: true }));
+            let myGroup = dbGroupData.groups.map(melon => melon.get({ plain: true }));
+            let groups = dbGroupData.joined_group.map(group => group.get({ plain: true }));
             res.render('homepage', { groups, myGroup, loggedIn: true });
         })
         .catch(err => {
@@ -37,20 +37,32 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/', (req, res) => {
+router.get('/:id', (req, res) => {
     Group.findOne({
         where: {
-            id: req.body.id
+            id: req.params.id
         },
         attributes: [
             'id',
-            'group_name',
-            'address'
+            'username',
+            'email'
+        ],
+        include: [
+            {
+                model: Group,
+                attributes: ['id', 'group_name', 'address']
+            },
+            {
+                model: Group,
+                attributes: ['id', 'group_name', 'address'],
+                through: Member,
+                as: 'joined_group'
+            }
         ]
     })
         .then(dbGroupData => {
-            // const myGroup = dbGroupData.groups.map(melon => melon.get({ plain: true }));
             const cherry = dbGroupData.get({ plain: true });
+            console.log(cherry, 'BARBEQUE');
             res.render('homepage', { cherry, loggedIn: true });
         })
         .catch(err => {

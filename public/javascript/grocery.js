@@ -69,7 +69,7 @@ async function deleteItem(event) {
 
 document.querySelector('#grocery-form').addEventListener('submit', createItem);
 // document.querySelector('#saved-groceries').addEventListener('submit', updateItem);
-document.querySelectorAll('.btn-danger').forEach(item => {
+document.querySelectorAll('.btn-delete-grocery').forEach(item => {
     item.addEventListener('click', deleteItem)});
 
 // document.addEventListener('click', e=>{

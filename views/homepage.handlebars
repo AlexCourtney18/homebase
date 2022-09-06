@@ -2,8 +2,8 @@
         <span class="navbar-brand h1">HomeBase</span>
         <div class="justify-content-left d-flex">
               <button class="navbar-item btn mx-2 btn-outline-secondary" id="logout">Logout</button>
-              <form class="form-inline">
-                  <input class="form-control mr-sm-2" type="search" placeholders="Base ID" aria-label="BaseID">
+              <form id="find-base-form"class="form-inline">
+                  <input id="find-base" class="form-control mr-sm-2" type="search" placeholder="Base ID" aria-label="BaseID">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Find Base</button>
               </form>
         </div>
@@ -53,7 +53,12 @@
                 <li class="list-group-item">Paid Bill</li>
             </ul>
         </div> --}}
+        {{!-- <p>EASY{{apple.group.group_name}}</p> --}}
+        {{#if cherry}}
+        <p>YOLO</p>
+        {{/if}}
     </section>
     <script src="/javascript/logout.js"></script>
     <script src="/javascript/creategroup.js"></script>
+    <script src="/javascript/findbase.js"></script>
 </div> 

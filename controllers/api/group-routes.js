@@ -27,7 +27,7 @@ router.get('/:id', (req, res) => {
         include: [
             {
                 model: User,
-                attributes: ['username']
+                attributes: ['id', 'username']
             },
             {
                 model: Bill,
@@ -44,10 +44,9 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ message: 'No group found with this id!' });
             return;
         }
-        
-        const group = dbGroupData.get({ plain: true })
-        //console.log(group)
-        res.render('homepage', group);
+        const plainJane = dbGroupData.get({ plain: true })
+        plainJane.key3 = req.session.user_id
+        res.json(plainJane);
     })
     .catch(err => {
         console.log(err);
@@ -74,7 +73,7 @@ router.post('/', (req, res) => {
 //Added here to attempt to associate groups and members
 router.put('/memberadd', withAuth, (req, res) => {
     Member.create({
-        user_id: req.body.user_id,
+        user_id: req.session.user_id,
         group_id: req.body.group_id
     })
     .then(dbGroupData => res.json(dbGroupData))
@@ -85,8 +84,7 @@ router.put('/:id', (req, res) => {
     Group.update(
         {
             group_name: req.body.group_name,
-            address: req.body.address,
-            //password: req.body.password
+            address: req.body.address
         },
         {
             where: {

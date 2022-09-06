@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
         where: {
-            id: req.params.id
+            id: req.params.id //used to be params
         },
         include: [
             {
@@ -48,6 +48,20 @@ router.get('/:id', (req, res) => {
         res.status(500).json(err);
     });
 }); //works
+
+// router.get('/button', (req, res) => {
+//     User.findOne({
+//         where: {
+//             id: req.session.id
+//         },
+//         attributes: { exclude: ['password'] }
+//     })
+//     .then(dbUserData => res.json(dbUserData))
+//     .catch(err => {
+//         console.log(err);
+//         res.status(500).json(err);
+//     })
+// })
 
 router.post('/', (req, res) => {
     User.create({

@@ -31,7 +31,7 @@
           <ul class="list-group" id="saved-groceries">
             {{#each groceries as |grocery|}}
             <li class="list-group-item">{{grocery_name}}<i class="delete-icon fa-solid fa-trash">
-              <button class="btn btn-danger" id={{id}} type="button">Delete</button>
+              <button class="btn btn-danger btn-delete-grocery" id={{id}} type="button">Delete</button>
             </i></li>
             {{/each}}
           </ul>
@@ -53,7 +53,7 @@
           {{#each bills as |bill|}}
           <ul class="list-group" id="billList">
             <li data-id="{{id}}" id="billItem" class="list-group-item">{{company}} ${{amount_due}} {{due_date}}
-              <button class="btn btn-danger" id={{id}} type="button">Delete
+              <button class="btn btn-danger btn-delete-bill" id={{id}} type="button">Delete
                 {{!-- <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i> --}}
               </button>
             </li>

@@ -46,11 +46,13 @@ async function deleteBill(event) {
   
   if (answer.ok) {
     document.location.replace('');
+    console.log("pancake");
   } else {
     alert(answer.statusText);
+    console.log("waffle");
   }
 }
 
 document.querySelector('#billForm').addEventListener('submit', createBill);
-document.querySelectorAll('.btn-danger').forEach(bill => {
+document.querySelectorAll('.btn-delete-bill').forEach(bill => {
   bill.addEventListener('click', deleteBill)});

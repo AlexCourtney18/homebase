@@ -44,7 +44,10 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ message: 'No group found with this id!' });
             return;
         }
-        res.json(dbGroupData);
+        
+        const group = dbGroupData.get({ plain: true })
+        //console.log(group)
+        res.render('homepage', group);
     })
     .catch(err => {
         console.log(err);

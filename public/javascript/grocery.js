@@ -54,11 +54,9 @@ async function updateItem(event) {
 async function deleteItem(event) {
     event.preventDefault();
 
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-    ];
+    const id = event.target.id;
 
-    const answer = await fetch(`api/groceries/${id}`, {
+    const answer = await fetch(`/api/groceries/${id}`, {
         method: 'DELETE'
     });
 
@@ -71,4 +69,13 @@ async function deleteItem(event) {
 
 document.querySelector('#grocery-form').addEventListener('submit', createItem);
 // document.querySelector('#saved-groceries').addEventListener('submit', updateItem);
-// document.querySelector('').addEventListener('click', deleteItem);
+document.querySelectorAll('.btn-danger').forEach(item => {
+    item.addEventListener('click', deleteItem)});
+
+// document.addEventListener('click', e=>{
+//     if(e.target.classList.contains('delete-icon')) deleteItem(e)
+// });
+
+
+// var elem = document.querySelector('#delete-icon');
+// elem.parentNode.removeChild(elem);

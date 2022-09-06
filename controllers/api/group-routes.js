@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const { Group, User, Bill, Chore } = require('../../models');
+const { Group, User, Bill, Member, Chore, Grocery } = require('../../models');
+const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -67,6 +68,16 @@ router.post('/', (req, res) => {
     }
 }); //works
 
+//Added here to attempt to associate groups and members
+router.put('/memberadd', withAuth, (req, res) => {
+    Member.create({
+        user_id: req.body.user_id,
+        group_id: req.body.group_id
+    })
+    .then(dbGroupData => res.json(dbGroupData))
+    .catch(err => res.json(err));
+});
+
 router.put('/:id', (req, res) => {
     Group.update(
         {
@@ -92,6 +103,8 @@ router.put('/:id', (req, res) => {
         res.status(500).json(err);
     });
 }); //works
+
+
 
 router.delete('/:id', (req, res) => {
     Group.destroy({

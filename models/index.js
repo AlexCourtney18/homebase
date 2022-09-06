@@ -65,5 +65,5 @@ Group.hasMany(Grocery, {
     foreignKey: 'group_id'
 });
 
-module.exports = { User, Bill, Group, Chore, Grocery };
+module.exports = { User, Bill, Group, Chore, Grocery, Member };
 

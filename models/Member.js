@@ -19,7 +19,7 @@ Member.init(
                 key: 'id'
             }
         },
-        post_id: {
+        group_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {

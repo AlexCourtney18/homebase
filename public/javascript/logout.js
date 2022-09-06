@@ -6,6 +6,7 @@ async function logout() {
     });
 
     if (answer.ok) {
+        console.log('logged out');
         document.location.replace('/');
     } else {
         alert(answer.statusText);

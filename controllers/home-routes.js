@@ -27,9 +27,43 @@ router.get('/', (req, res) => {
         ]
     })
         .then(dbGroupData => {
-            const myGroup = dbGroupData.groups.map(melon => melon.get({ plain: true }));
-            const groups = dbGroupData.joined_group.map(group => group.get({ plain: true }));
+            let myGroup = dbGroupData.groups.map(melon => melon.get({ plain: true }));
+            let groups = dbGroupData.joined_group.map(group => group.get({ plain: true }));
             res.render('homepage', { groups, myGroup, loggedIn: true });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/:id', (req, res) => {
+    Group.findOne({
+        where: {
+            id: req.params.id
+        },
+        attributes: [
+            'id',
+            'username',
+            'email'
+        ],
+        include: [
+            {
+                model: Group,
+                attributes: ['id', 'group_name', 'address']
+            },
+            {
+                model: Group,
+                attributes: ['id', 'group_name', 'address'],
+                through: Member,
+                as: 'joined_group'
+            }
+        ]
+    })
+        .then(dbGroupData => {
+            const cherry = dbGroupData.get({ plain: true });
+            console.log(cherry, 'BARBEQUE');
+            res.render('homepage', { cherry, loggedIn: true });
         })
         .catch(err => {
             console.log(err);

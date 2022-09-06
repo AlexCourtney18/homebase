@@ -48,14 +48,15 @@
 
       <div class="list-container mt-2">
         <div class="card">
+          {{#each bills as |bill|}}
           <ul class="list-group" id="billList">
-            {{#each bills as |bill|}}
-              <li data-id="{{id}}" class="list-group-item">{{company}} ${{amount_due}} {{due_date}} 
-                <button class="btn btn-danger" type="button">
-                <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i></li>
-                </button>
-            {{/each}}
+            <li data-id="{{id}}" id="billItem" class="list-group-item">{{company}} ${{amount_due}} {{due_date}}
+              <button class="btn btn-danger" id={{id}} type="button">Delete
+                {{!-- <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i> --}}
+              </button>
+            </li>
           </ul>
+          {{/each}}
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
         where: {
-            id: req.params.id
+            id: req.params.id //used to be params
         },
         include: [
             {
@@ -64,7 +64,7 @@ router.post('/', (req, res) => {
             res.json(dbUserData);
         });
     })
-}); //works. Will need to uncomment this line and the session data for sessions
+}); //works.
 
 router.post('/login', (req, res) => {
     User.findOne({

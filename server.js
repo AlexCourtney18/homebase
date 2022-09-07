@@ -9,7 +9,7 @@ const hbs = exphbs.create({ helpers });
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-    secret: process.env.DBSECRET,
+    secret: 'This is a Secret',
     cookie: {},
     resave: false,
     saveUninitialized: true,

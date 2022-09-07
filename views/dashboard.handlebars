@@ -7,10 +7,10 @@
 </nav>
 <main class="container">
   <section class="row my-4">
-    <h3 class="col-md group-text">Group Name: <span class="group-info">{{groups.group_name}}</span></h3>
+    <h3 class="col-md group-text">Base Name: <span class="group-info">{{groups.group_name}}</span></h3>
     <h3 class="col-md group-text">Address: <span class="group-info">{{groups.address}}</span></h3>
-    <h3 class="col-md group-text">Group Id: <span class="group-info">{{groups.id}}</span></h3>
-    <button type="button" class="btn btn-info btn-block" id="delete-btn">Delete Base</button>
+    <h3 class="col-md group-text">Base Id: <span class="group-info">{{groups.id}}</span></h3>
+    {{!-- <button type="button" class="btn btn-info btn-block" id="delete-btn">Delete Base</button> --}}
   </section>
   <section class="row">
     <!-- Grocery container begins !-->
@@ -30,9 +30,9 @@
         <div class="card">
           <ul class="list-group" id="saved-groceries">
             {{#each groceries as |grocery|}}
-            <li class="list-group-item">{{grocery_name}}<i class="delete-icon fa-solid fa-trash">
+            <li class="list-group-item">{{grocery_name}}
               <button class="btn btn-danger btn-delete-grocery" id={{id}} type="button">Delete</button>
-            </i></li>
+            </li>
             {{/each}}
           </ul>
         </div>
@@ -52,10 +52,8 @@
         <div class="card">
           {{#each bills as |bill|}}
           <ul class="list-group" id="billList">
-            <li data-id="{{id}}" id="billItem" class="list-group-item">{{company}} ${{amount_due}} {{due_date}}
-              <button class="btn btn-danger btn-delete-bill" id={{id}} type="button">Delete
-                {{!-- <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i> --}}
-              </button>
+            <li data-id="{{id}}" id="billItem" class="list-group-item">{{company}} ${{amount_due}} {{format_date due_date}}
+              <button class="btn btn-danger btn-delete-bill" id={{id}} type="button">Delete</button>
             </li>
           </ul>
           {{/each}}

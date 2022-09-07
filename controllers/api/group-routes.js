@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { Group, User, Bill, Member, Chore, Grocery } = require('../../models');
-const sequelize = require('../../config/connection');
+const { Group, User, Bill, Member, Chore } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
@@ -12,7 +11,7 @@ router.get('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
+});
 
 router.get('/:id', (req, res) => {
     Group.findOne({
@@ -44,16 +43,15 @@ router.get('/:id', (req, res) => {
             res.status(404).json({ message: 'No group found with this id!' });
             return;
         }
-        const plainJane = dbGroupData.get({ plain: true })
-        plainJane.key3 = req.session.user_id
-        console.log(req.session.username)
-        res.json(plainJane);
+        const plainGroup = dbGroupData.get({ plain: true })
+        plainGroup.sessuser = req.session.user_id
+        res.json(plainGroup);
     })
     .catch(err => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
+});
 
 router.post('/', (req, res) => {
 
@@ -69,9 +67,8 @@ router.post('/', (req, res) => {
             res.status(500).json(err);
         });
     }
-}); //works
+});
 
-//Added here to attempt to associate groups and members
 router.put('/memberadd', withAuth, (req, res) => {
     Member.create({
         user_id: req.session.user_id,
@@ -104,7 +101,7 @@ router.put('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
+});
 
 
 
@@ -126,6 +123,5 @@ router.delete('/:id', (req, res) => {
         res.status(500).json(err);
     });
 });
-
 
 module.exports = router;

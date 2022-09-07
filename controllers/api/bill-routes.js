@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Bill, Group, User } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Bill.findAll({
@@ -27,7 +26,7 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}); //works
+});
 
 router.get('/:id', (req, res) => {
     Bill.findOne({
@@ -66,7 +65,6 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    //if (req.session) { //commented out seession data for now
         Bill.create({
             company: req.body.company,
             amount_due: req.body.amount_due,
@@ -79,7 +77,6 @@ router.post('/', (req, res) => {
                 console.log(err);
                 res.status(400).json(err);
             });
-    //}
 });
 
 router.put('/:id', (req, res) => {
@@ -107,7 +104,7 @@ router.put('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
+});
 
 router.delete('/:id', (req, res) => {
     Bill.destroy({
@@ -126,6 +123,6 @@ router.delete('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}); //works
+});
 
 module.exports = router;

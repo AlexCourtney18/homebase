@@ -8,7 +8,6 @@ HomeBase is deployed live using the Heroku hosting service. No installation is r
 
 ## Usage
 When the user reaches the HomeBase landing page, they'll be given the choice to either create a new account or sign in with an existing account. Once you're logged in you'll be redirected to the homepage where you'll see your existing bases on the left side of the screen as well as an option to create new bases. In the upper right corner you'll find a search bar used to join a base another user has created. Search the base id number that is assigned and displayed on the base's dashboard. The group details will generate with a button to join the base. When you're on the base's dashboard, existing groceries and bills will be displayed along with the option to create a new item. Simply fill in the required fields and the item will be created. New items are instantly visable to all users who have joined the base! A simple click on the chore wheel will start the spin. In the navbar at the top of the screen you'll see options to return to your homepage or logout when finished.
-
 </br>
 </br>
 ![landing page](./public/assets/login-screenshot.PNG)

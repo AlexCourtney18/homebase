@@ -63,3 +63,12 @@ h6 {
     width: 400px;
     height: 400px;
 }
+
+.anchor {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.anchor:hover {
+    text-decoration: none;
+}

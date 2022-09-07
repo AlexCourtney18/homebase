@@ -1,7 +1,5 @@
 async function createBaseFormHandler(event) {
-
     event.preventDefault();
-
 
     const group_name = document.querySelector('#baseName').value.trim();
 
@@ -11,46 +9,39 @@ async function createBaseFormHandler(event) {
 
     const addressState = document.querySelector('#address-state').value.trim();
 
-    const address = dress + " " + addressCity + ', ' + addressState;
+    if(dress && addressCity && addressState) {
+        let address = dress + ', ' + addressCity + ', ' + addressState;
+    
+        if (group_name && address) {
 
+            const response = await fetch('/api/groups', {
 
+                method: 'post',
 
-    if (group_name && address) {
+                body: JSON.stringify({
 
-        const response = await fetch('/api/groups', {
+                    group_name,
+                    address,
+                    
 
-            method: 'post',
+                }),
 
-            body: JSON.stringify({
+                headers: { 'Content-Type': 'application/json' }
 
-                group_name,
-                address,
-                
+            });
 
-            }),
+            if (response.ok) {
 
-            headers: { 'Content-Type': 'application/json' }
+                console.log('base successfully made!');
+                document.location.replace('/homepage');
 
-        });
+            } else {
 
-        if (response.ok) {
+                alert(response.statusText);
 
-            console.log('base successfully made!');
-            document.location.replace('/homepage');
-
-        } else {
-
-            alert(response.statusText);
-
+            }
         }
-
-
     }
-
-
-
-
-
 }
 
 

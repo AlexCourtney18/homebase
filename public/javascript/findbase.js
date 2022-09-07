@@ -44,7 +44,7 @@ function printGroupCard(data) {
         submitButton.textContent = 'Join Group'
         submitButton.setAttribute('type', 'button');
         submitButton.setAttribute('id', id)
-        submitButton.classList.add('btn', 'btn-danger', 'join-group-button')
+        submitButton.classList.add('btn', 'btn-info', 'join-group-button', 'mb-4')
         dataCard.appendChild(submitButton);
         
         document.querySelector('.join-group-button').addEventListener('click', joinBase);

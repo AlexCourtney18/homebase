@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { User, Bill, Group, Chore } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     User.findAll({
@@ -11,13 +10,13 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}); //works
+});
 
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
         where: {
-            id: req.params.id //used to be params
+            id: req.params.id
         },
         include: [
             {
@@ -47,7 +46,7 @@ router.get('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
+});
 
 router.post('/', (req, res) => {
     User.create({
@@ -64,7 +63,7 @@ router.post('/', (req, res) => {
             res.json(dbUserData);
         });
     })
-}); //works.
+});
 
 router.post('/login', (req, res) => {
     User.findOne({
@@ -74,16 +73,12 @@ router.post('/login', (req, res) => {
     }).then(dbUserData => {
         if (!dbUserData) {
             res.status(400).json({ message: 'No user with that email address!' });
-            console.log("FAIL TRUTHY TEST"); 
             return;
         }
 
         const validPassword = dbUserData.checkPassword(req.body.password);
-        console.log(req.body.password, "PASSWORD VALUE!!!!");
-        console.log(validPassword, "VALID PASSWORD????");
         if (!validPassword) {
             res.status(400).json({ message: 'Incorrect password!' });
-            console.log("FAIL PASSWORD VALIDATION");
             return;
         }
 
@@ -95,7 +90,7 @@ router.post('/login', (req, res) => {
             res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
     });
-}); //no test
+});
 
 router.put('/:id', (req, res) => {
     User.update(req.body, {
@@ -115,7 +110,7 @@ router.put('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}); //works
+});
 
 router.delete('/:id', (req, res) => {
     User.destroy({
@@ -134,7 +129,7 @@ router.delete('/:id', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}); //works
+});
 
 router.post('/logout', (req, res) => {
     if (req.session.loggedIn) {
@@ -145,7 +140,6 @@ router.post('/logout', (req, res) => {
     else {
         res.status(404).end();
     }
-}); //no test
-
+});
 
 module.exports = router;

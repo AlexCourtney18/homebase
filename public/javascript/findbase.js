@@ -4,6 +4,7 @@ async function findBase(event) {
 
     if(group_id) {
         const response = await fetch(`/api/groups/${group_id}`, {
+
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         });
@@ -73,5 +74,6 @@ async function joinBase(event) {
         alert(response.statusText);
     }
 }
+
 
 document.querySelector('#find-base-form').addEventListener('submit', findBase);

@@ -31,6 +31,7 @@ router.get('/', (req, res) => {
             let groups = dbGroupData.joined_group.map(group => group.get({ plain: true }));
             //console.log(groups)
             res.render('homepage', { groups, myGroup, loggedIn: true });
+
         })
         .catch(err => {
             console.log(err);

@@ -32,10 +32,12 @@ router.get('/:id', withAuth, (req, res) => {
         const bills = dbGroupData.bills.map(bill => bill.get({ plain: true }));
         const groceries = dbGroupData.groceries.map(group => group.get({ plain: true }));
         const groups = dbGroupData.get({ plain: true });
+        const chores = dbGroupData.chores.map(chore => chore.get({ plain: true }));
         res.render('dashboard', {
             groceries,
             groups,
             bills,
+            chores,
             loggedIn: true
         });
     })

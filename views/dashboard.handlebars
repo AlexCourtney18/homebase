@@ -60,43 +60,51 @@
         </div>
       </div>
     </div>
-    <!-- Chores container begins !-->
+    {{!-- Chores secondary begins --}}
     <div class="col-md">
-      <i id="deleteBill" class="delete-icon glyphicon glyphicon-trash"></i>
-      <h3 class="text-center"><i class="fa-solid fa-broom"></i>Chores</h3>
-      <button type="button" id="spin_button" class="btn btn-success btn-block" onclick="theWheel.startAnimation();">
-        Spin
-      </button>
-      <div id="canvasContainer">
-        <canvas id="canvas" width="400" height="400"> Your browser does not support the canvas tag. </canvas>
+      <form id="chore-form">
+        <h3 class="text-center"><i class="fa-sharp fa-solid fa-broom"></i> Chores</h3>
+        <div class="form-group">
+          <input type="text" class="form-control" id="chore-name" placeholder="Chore Name" />
+        </div>
+        <button type="submit" id="add-chore" class="btn btn-success btn-block">
+          Add
+        </button>
+      </form>
+
+      <div class="list-container mt-2">
+        <h6 id="chore-heading">Chores to do...</h6>
+        <div class="card">
+          <ul class="list-group" id="saved-chores">
+            {{#each chores as |chore|}}
+            <li class="list-group-item">{{chore_name}}
+              <button class="btn btn-danger btn-delete-chore" id={{id}} type="button">Delete</button>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
       </div>
-      <script>let theWheel = new Winwheel({
-          'outerRadius': 110,
-          'centerX': 200,
-          'centerY': 201,
-          'numSegments': 6,
-          'textFontFamily': 'Lucida',
-          'segments':
-            [
-              { 'fillStyle': '#e3f1e2', 'text': 'Sweep' },
-              { 'fillStyle': '#6BBC83', 'text': 'Laundry' },
-              { 'fillStyle': '#D2DCD3', 'text': 'Lawncare' },
-              { 'fillStyle': '#91BFBC', 'text': 'Bathroom' },
-              { 'fillStyle': '#badabf', 'text': 'Groceries' },
-              { 'fillStyle': '#41635E', 'text': 'Dishes' },
-            ],
-          'animation':                   // Note animation properties passed in constructor parameters.
-          {
-            'type': 'spinToStop',  // Type of animation.
-            'duration': 5,             // How long the animation is to take in seconds.
-            'spins': 8              // The number of complete 360 degree rotations the wheel is to do.
-          }
-        });
-      </script>
     </div>
+  </section>
+    <!-- Chores container begins !-->
+    <section class="row">
+      <div class="col-lg">
+        <i id="deleteBill" class="delete-icon glyphicon glyphicon-trash"></i>
+        <h3 class="text-center"><i class="fa-solid fa-broom"></i>Chores</h3>
+        <button type="button" id="spin_button" class="btn btn-success btn-block" onclick="theWheel.startAnimation();">
+          Spin
+        </button>
+        <div id="canvasContainer">
+          <canvas id="canvas" width="400" height="400"> Your browser does not support the canvas tag. </canvas>
+        </div>
+        {{!-- This is where JS whinwheel used to be --}}
+        <script src="/javascript/spinny.js"></script>
+      </div>
   </section>
 </main>
 
+<script src="/javascript/chore.js"></script>
+<script src="/javascript/winwheel.js"></script>
 <script src="/javascript/grocery.js"></script>
 <script src="/javascript/bill.js"></script>
 <script src="/javascript/logout.js"></script>

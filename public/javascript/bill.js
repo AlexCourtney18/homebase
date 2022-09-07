@@ -1,17 +1,11 @@
-/* model after grocery*/
-
 async function createBill(event) {
   event.preventDefault();
-  console.log("create bill!");
 
   const company = document.querySelector('input[id="companyName"]').value.trim();
   const amount_due = document.querySelector('input[id="amountDue"]').value.trim();
   const due_date = document.querySelector('input[id="dueDate"]').value.trim();
   const group_id = window.location.toString().split('/')[
     window.location.toString().split('/').length - 1];
-  console.log("Company:", company);
-  console.log("Amount:", amount_due);
-  console.log("Due Date:", due_date);
 
   const answer = await fetch(`/api/bills`, {
     method: 'POST',
@@ -35,7 +29,6 @@ async function createBill(event) {
 
 async function deleteBill(event) {
   event.preventDefault();
-  console.log(event.target.id, "ELEMENT ID");
 
    const id = event.target.id
   
@@ -46,10 +39,8 @@ async function deleteBill(event) {
   
   if (answer.ok) {
     document.location.replace('');
-    console.log("pancake");
   } else {
     alert(answer.statusText);
-    console.log("waffle");
   }
 }
 

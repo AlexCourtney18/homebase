@@ -4,7 +4,6 @@ async function findBase(event) {
 
     if(group_id) {
         const response = await fetch(`/api/groups/${group_id}`, {
-
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         });
@@ -20,11 +19,10 @@ async function findBase(event) {
 }
 
 function printGroupCard(data) {
-    console.log(data)
     let id = data.id;
     let group_name = data.group_name;
     let address = data.address;
-    let cuid = data.key3
+    let cuid = data.sessuser
     let muid = data.user.id
     let dataCard = document.querySelector('#data-card');
     
@@ -45,7 +43,7 @@ function printGroupCard(data) {
         submitButton.textContent = 'Join Group'
         submitButton.setAttribute('type', 'button');
         submitButton.setAttribute('id', id)
-        submitButton.classList.add('btn', 'btn-danger', 'join-group-button')
+        submitButton.classList.add('btn', 'btn-info', 'join-group-button', 'mb-4')
         dataCard.appendChild(submitButton);
         
         document.querySelector('.join-group-button').addEventListener('click', joinBase);
@@ -54,7 +52,6 @@ function printGroupCard(data) {
 
 async function joinBase(event) {
     event.preventDefault();
-    console.log('APPLE');
 
     const group_id = event.target.id;
     

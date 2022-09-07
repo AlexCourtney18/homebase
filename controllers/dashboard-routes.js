@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Bill, Chore, Grocery, Group, User } = require('../models');
+const { Bill, Chore, Grocery, Group } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/:id', withAuth, (req, res) => {
@@ -30,7 +29,6 @@ router.get('/:id', withAuth, (req, res) => {
         ]
     })
     .then(dbGroupData => {
-        // console.log('CAKE', dbGroupData.bills, dbGroupData.chores, dbGroupData.groceries);
         const bills = dbGroupData.bills.map(bill => bill.get({ plain: true }));
         const groceries = dbGroupData.groceries.map(group => group.get({ plain: true }));
         const groups = dbGroupData.get({ plain: true });

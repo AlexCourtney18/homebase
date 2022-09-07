@@ -30,9 +30,9 @@
         <div class="card">
           <ul class="list-group" id="saved-groceries">
             {{#each groceries as |grocery|}}
-            <li class="list-group-item">{{grocery_name}}<i class="delete-icon fa-solid fa-trash">
+            <li class="list-group-item">{{grocery_name}}
               <button class="btn btn-danger btn-delete-grocery" id={{id}} type="button">Delete</button>
-            </i></li>
+            </li>
             {{/each}}
           </ul>
         </div>

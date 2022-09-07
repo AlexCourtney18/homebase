@@ -52,7 +52,7 @@
         <div class="card">
           {{#each bills as |bill|}}
           <ul class="list-group" id="billList">
-            <li data-id="{{id}}" id="billItem" class="list-group-item">{{company}} ${{amount_due}} {{due_date}}
+            <li data-id="{{id}}" id="billItem" class="list-group-item">{{company}} ${{amount_due}} {{format_date due_date}}
               <button class="btn btn-danger btn-delete-bill" id={{id}} type="button">Delete
                 {{!-- <i id="delete-bill" class="delete-icon fa-solid fa-trash"></i> --}}
               </button>

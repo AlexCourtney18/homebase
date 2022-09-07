@@ -11,23 +11,24 @@ When the user reaches the HomeBase landing page, they'll be given the choice to 
 
 </br>
 </br>
-![landing page](./public/images/login-screenshot.PNG)
+![landing page](./public/assets/login-screenshot.PNG)
 </br>
 </br>
-![homepage](./public/images/homepage-screenshot.PNG)
+![homepage](./public/assets/homepage-screenshot.PNG)
 </br>
 </br>
-![dashboard](./public/images/dashboard-screenshot.PNG)
+![dashboard](./public/assets/dashboard-screenshot.PNG)
 
 ## Credits
 HomeBase is proudly created and maintained by Alex, Autumn, Gestan, Kelsie, Olivia, and Sam.
+</br>
 ![bcrypt badge](https://img.shields.io/badge/bcrypt-5.0.1-blue)
 </br>
 ![connect-session-sequelize badge](https://img.shields.io/badge/connect--session--sequelize-7.1.4-blue)
 </br>
-![dotenv badge](https://img.shields.io/badge/dotenv-16.0.1-green)
+![dotenv badge](https://img.shields.io/badge/dotenv-16.0.1-blue)
 </br>
-![express badge](https://img.shields.io/badge/express-4.18.1-green)
+![express badge](https://img.shields.io/badge/express-4.18.1-blue)
 </br>
 ![express-handlebars badge](https://img.shields.io/badge/express--handlebars-6.0.6-blue)
 </br>

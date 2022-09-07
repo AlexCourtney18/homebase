@@ -75,5 +75,4 @@ async function joinBase(event) {
     }
 }
 
-
 document.querySelector('#find-base-form').addEventListener('submit', findBase);

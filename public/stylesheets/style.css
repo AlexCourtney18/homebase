@@ -20,7 +20,7 @@ h4 {
 /* dashboard styles below */
 
 a {
-    color: #66fcf1
+    color: #66fcf1;
 }
 
 .group-text {
@@ -33,7 +33,9 @@ a {
 }
 
 .group-info {
-    color: #66fcf1
+    color: #66fcf1;
+    text-shadow: 1px 1px 3px #343a40;
+
 }
 
 h3 {

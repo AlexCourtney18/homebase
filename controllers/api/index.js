@@ -12,6 +12,4 @@ router.use('/chores', choreRoutes);
 router.use('/groceries', groceryRoutes);
 router.use('/groups', groupRoutes);
 
-
-
 module.exports = router;

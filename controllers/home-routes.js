@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const sequelize = require('../config/connection');
-const { Bill, Chore, Grocery, Group, Member, User } = require('../models');
-const withAuth = require('../utils/auth');
+const { Group, Member, User } = require('../models');
 
 router.get('/', (req, res) => {
     User.findOne({
@@ -27,9 +25,8 @@ router.get('/', (req, res) => {
         ]
     })
         .then(dbGroupData => {
-            let myGroup = dbGroupData.groups.map(melon => melon.get({ plain: true }));
+            let myGroup = dbGroupData.groups.map(base => base.get({ plain: true }));
             let groups = dbGroupData.joined_group.map(group => group.get({ plain: true }));
-            //console.log(groups)
             res.render('homepage', { groups, myGroup, loggedIn: true });
         })
         .catch(err => {

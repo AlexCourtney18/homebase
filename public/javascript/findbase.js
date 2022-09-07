@@ -19,11 +19,10 @@ async function findBase(event) {
 }
 
 function printGroupCard(data) {
-    console.log(data)
     let id = data.id;
     let group_name = data.group_name;
     let address = data.address;
-    let cuid = data.key3
+    let cuid = data.sessuser
     let muid = data.user.id
     let dataCard = document.querySelector('#data-card');
     
@@ -53,7 +52,6 @@ function printGroupCard(data) {
 
 async function joinBase(event) {
     event.preventDefault();
-    console.log('APPLE');
 
     const group_id = event.target.id;
     

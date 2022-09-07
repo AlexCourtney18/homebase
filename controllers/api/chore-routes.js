@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const { Chore, Group } = require('../../models');
-const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Chore.findAll({
@@ -16,7 +15,7 @@ router.get('/', (req, res) => {
             console.log(err);
             res.status(500).json(err);
         });
-}); //works
+});
 
 router.get('/:id', (req, res) => {
     Chore.findOne({
@@ -41,7 +40,7 @@ router.get('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
+});
 
 router.post('/', (req, res) => {
     Chore.create({
@@ -53,7 +52,7 @@ router.post('/', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
+});
 
 router.put('/:id', (req, res) => {
     Chore.update(
@@ -78,7 +77,7 @@ router.put('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
+});
 
 router.delete('/:id', (req, res) => {
     Chore.destroy({
@@ -97,8 +96,7 @@ router.delete('/:id', (req, res) => {
         console.log(err);
         res.status(500).json(err);
     });
-}); //works
-
+}); 
 
 module.exports = router;
 
